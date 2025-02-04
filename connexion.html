@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP2</title>
+    <link rel="stylesheet" href="styleConnexion.css">
+    
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Headboost</a>
+            <div class="right">
+            <a href="index.html">Accueil</a>
+            <p>Contact</p>
+            <button>Acheter</button>
+            </div>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+
+    </header>
+        <div class="container">
+            <!-- Formulaire de Connexion -->
+            <div id="connexion" class="form-box">
+                <h1>Connexion</h1>
+                <p id="erreur">Email ou mot de passe incorect !</p>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Mot de passe" required>
+                <button id="btn-connexion">Se connecter</button>
+                <p class="toggle-form">Pas encore de compte ? <span id="show-inscription">Inscription</span></p>
+            </div>
+    
+            <!-- Formulaire d'Inscription -->
+            <div id="inscription" class="form-box hidden">
+                <h1>Inscription</h1>
+                <p id="erreur">Email ou mot de passe incorect !</p>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Mot de passe" required>
+                <input type="password" placeholder="Confirmez le mot de passe" required>
+                <button id="btn-inscription">S'inscrire</button>
+                <p class="toggle-form">Déjà un compte ? <span id="show-connexion">Connexion</span></p>
+            </div>
+        </div>
+
+    <footer>
+        <div class="column">
+            <h3>Aide</h3>
+            <p>contact@headboost.fr</p>
+            <p>Contactez-nous</p>
+            <p>Comment acheter</p>
+        </div>
+        <div class="column">
+            <h3>Recrutement</h3>
+            <p>business@headboost.fr</p>
+            <p>Postuler en ligne</p>
+            <p>Comment faire ?</p>
+        </div>
+        <div class="column">
+            <h3>Réseaux</h3>
+            <p>Facebook</p>
+            <p>Twitter</p>
+            <p>Instagram</p>
+        </div>
+    </footer>
+
+    <div class="menu-overlay">
+        <div class="menu-content">
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </div>    
+
+    <script src="script.js"></script>
+</body>
+</html>
