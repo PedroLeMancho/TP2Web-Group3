@@ -13,7 +13,7 @@
             <a href="index.html">Headboost</a>
             <div class="right">
             <a href="index.html">Accueil</a>
-            <p>Contact</p>
+            <a href="presentation.html">Presentation</a>
             <button>Acheter</button>
             </div>
             <div class="burger">
@@ -28,7 +28,7 @@
             <!-- Formulaire de Connexion -->
             <div id="connexion" class="form-box">
                 <h1>Connexion</h1>
-                <p id="erreur">Email ou mot de passe incorect !</p>
+                <p id="erreurConnexion">Email ou mot de passe incorect !</p>
                 <input type="email" placeholder="Email" required>
                 <input type="password" placeholder="Mot de passe" required>
                 <button id="btn-connexion">Se connecter</button>
@@ -38,10 +38,11 @@
             <!-- Formulaire d'Inscription -->
             <div id="inscription" class="form-box hidden">
                 <h1>Inscription</h1>
-                <p id="erreur">Email ou mot de passe incorect !</p>
+                <p id="erreurInscription">Email ou mot de passe incorect !</p>
                 <input type="email" placeholder="Email" required>
                 <input type="password" placeholder="Mot de passe" required>
                 <input type="password" placeholder="Confirmez le mot de passe" required>
+                <p class="indication">Le mot de passe doit contenir au moins 8 caractères dont : un caractère special, une majuscule, une minuscule et un chiffre</p>
                 <button id="btn-inscription">S'inscrire</button>
                 <p class="toggle-form">Déjà un compte ? <span id="show-connexion">Connexion</span></p>
             </div>

@@ -86,7 +86,7 @@ header nav a{
     color:#D33BFD;
     font-size: large;
     text-decoration: none;
-    margin-right: 15px;
+    margin : 2rem 15px 2rem 0;
 }
 
 header nav .right a:hover {
@@ -140,7 +140,7 @@ input::placeholder {
 }
 
 .container {
-    width: 35%;
+    width: 39%;
     height: 75%;
     margin :5%;
     background: rgba(255, 255, 255, 0.1);
@@ -156,10 +156,26 @@ div h1 {
     margin-bottom: 20px;
 }
 
-#erreur{
-    display:none;
-    color:red;
+#erreurConnexion {
+    display: none;
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
 }
+
+#erreurInscription {
+    display: none;
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.indication{
+    font-size: 12px;
+    color:#ccc;
+    font-weight: lighter;
+}
+
 
 input {
     width: 100%;
@@ -211,12 +227,11 @@ div button:hover {
 
 footer {
 	margin: 0;
-	padding: 20px;
+	padding: 2%;
 	background-color: black;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
-    height: auto;
     width: 100%;
 }
 

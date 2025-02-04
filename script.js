@@ -61,6 +61,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const connexionForm = document.getElementById("btn-connexion");
   const inscriptionForm = document.getElementById("btn-inscription");
 
+  const erreurC = document.getElementById("erreurConnexion");
+  const erreurI = document.getElementById("erreurInscription");
+
   showInscription.addEventListener("click", function () {
       connexionDiv.classList.add("hidden");
       inscriptionDiv.classList.remove("hidden");
@@ -90,17 +93,29 @@ document.addEventListener("DOMContentLoaded", function () {
       const password = document.querySelector("#connexion input[type='password']").value;
 
       if (!validateEmail(email)) {
-          alert("Veuillez entrer un email valide.");
-
+          erreurC.style.display ="block";
           return;
       }
 
       if (!validatePassword(password)) {
-          alert("Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial.");
+          erreurC.style.display ="block";
           return;
       }
 
-      alert("Connexion réussie !");
+      // Récupérer les utilisateurs enregistrés
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    // Vérifier si l'utilisateur existe
+    const user = users.find(user => user.email === email && user.password === password);
+
+    if (!user) {
+        erreurC.textContent = "Email ou mot de passe incorrect !";
+        erreurC.style.display = "block";
+        return;
+    }
+
+      localStorage.setItem("loggedInUser", email);
+      alert("Bienvenue " + email + " !");
   });
 
   // Validation du formulaire d'inscription
@@ -108,18 +123,15 @@ document.addEventListener("DOMContentLoaded", function () {
       event.preventDefault(); // Empêche l'envoi du formulaire
       const email = document.querySelector("#inscription input[type='email']").value;
       const password = document.querySelector("#inscription input[type='password']").value;
-      const erreur = document.getElementsByiD("erreur");
       const confirmPassword = document.querySelector("#inscription input[placeholder='Confirmez le mot de passe']").value;
 
       if (!validateEmail(email)) {
-          alert("Veuillez entrer un email valide.");
-          erreur.style.display("block");
+          erreurI.style.display ="block";
           return;
       }
 
       if (!validatePassword(password)) {
-          alert("Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial.");
-          erreur.style.display("block");
+          erreurI.style.display ="block";
           return;
       }
 
@@ -128,6 +140,38 @@ document.addEventListener("DOMContentLoaded", function () {
           return;
       }
 
+      let users = JSON.parse(localStorage.getItem("users")) || [];
+
+        // Vérifier si l'email existe déjà
+        if (users.some(user => user.email === email)) {
+            erreurI.textContent = "Cet email est déjà utilisé.";
+            erreurI.style.display = "block";
+            return;
+        }
+
+        // Ajouter le nouvel utilisateur
+        users.push({ email, password });
+        localStorage.setItem("users", JSON.stringify(users));
+
+        erreurI.style.display = "none"; 
+        alert("Inscription réussie !");
+
       alert("Inscription réussie !");
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const user = localStorage.getItem("loggedInUser");
+    if (user) {
+        alert("Bienvenue, " + user + " !");
+    }
+});
+
+/* Déconnexion */
+
+document.getElementById("btn-deconnexion").addEventListener("click", function () {
+    localStorage.removeItem("loggedInUser");
+    alert("Déconnexion réussie !");
+    location.reload(); // Recharger la page
+});
+
